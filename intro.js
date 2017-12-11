@@ -3,6 +3,8 @@ var button = document.getElementById('b');
 var listItems = list.getElementsByTagName('li');
 var n = listItems.length;
 
+
+
 var addL = (function(){
     //create new list item
     var item = document.createElement('li');
@@ -16,6 +18,8 @@ var addL = (function(){
     list.appendChild(item);
     n++;
 });
+
+
 
 var changeH = (function(){
     var heading = document.getElementById('h');
@@ -47,3 +51,30 @@ for (i = 0; i < listItems.length; i++) {
     item.addEventListener('click',removeL);
 };
 
+
+
+var button2 = document.getElementById('b2');
+var list2 = document.getElementById('theOtherList');
+var listItems2 = list2.getElementsByTagName('li');
+var n2 = listItems2.length;
+
+var addL2 = (function(){
+    //create new list item
+    var item = document.createElement('li');
+    var txt = document.createTextNode(fibonacci(n2));
+    item.appendChild(txt);
+    list2.appendChild(item);
+    n2++;
+});
+
+button2.addEventListener('click', addL2);
+
+
+var fibonacci = function(x) {
+    if (x <= 1){
+	return x
+    }
+    else{
+	return fibonacci(x-1) + fibonacci(x - 2)
+    }
+};
